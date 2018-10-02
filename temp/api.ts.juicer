@@ -1,0 +1,13 @@
+/**
+ * Created on #{date}
+ */
+const base: string = '/code.base.com'
+
+{@each data as item, index}
+/**
+{@each item.comment as ct, index} * #{ct} {@/each}
+ * @type {string}
+ */
+export const #{item.last}: string = `${base}#{item.path}`
+
+{@/each}

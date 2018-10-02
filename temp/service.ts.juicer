@@ -1,0 +1,18 @@
+/**
+ * Created on #{date}
+ */
+import axios from '@/lib/axios'
+import {
+{@each data as item, index}  #{item.last},
+{@/each}} from '#{relative}'
+
+{@each data as item, index}
+/**
+ * #{item.it.summary}
+ * @param payload
+ */
+export const #{item.name} = async (payload = {}): Promise<any> => {
+  const response = await axios(#{item.last}, payload, '#{item.type}')
+  return response
+}
+{@/each}

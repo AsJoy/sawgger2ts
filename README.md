@@ -49,6 +49,7 @@
      */
     export const summary: string = `${base}/test-controller/summary`
 ```
+
 2. `service.ts`
 
 ```js

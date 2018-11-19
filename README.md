@@ -51,7 +51,7 @@
 ```
 2. `service.ts`
 
-    ```js
+```js
     import axios from '@/lib/axios'
     import {
       summary
@@ -63,15 +63,15 @@
       return response
     }
 
-    ```
+```
 
 3. Interface.ts
 
-    ```js
+```js
     export interface IActivityProduct {
       aliasName?:string // 奖品别名
       name?: string,
       id?: string,
     }
 
-    ```
+```

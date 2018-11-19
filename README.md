@@ -44,10 +44,10 @@
      */
     const base: string = '/base.com'
     /**
-     * 账单分析数据汇总
+     * summary 接口的注释
      * @type {string}
      */
-    export const summary: string = `${base}/ops-activity/api/v1/activity/bill/summary`
+    export const summary: string = `${base}/test-controller/summary`
 ```
 2. `service.ts`
 
@@ -56,44 +56,22 @@
     import {
       summary
     } from './api'
-    /**
-     * 增加用户参与活动机会.
-     * @param payload
-     */
+
+
     export const fetchsummary = async (payload = {}): Promise<any> => {
       const response = await axios(summary, payload, 'get')
       return response
     }
 
     ```
+
 3. Interface.ts
 
     ```js
     export interface IActivityProduct {
       aliasName?:string // 奖品别名
-      backColor?:string // 票券底色
-      batchNo?:string // 批次号
-      costConversion?:number // 奖品折算成本，单位元
-      createUser?:string // 创建人
-      dailyLimitAmount?:number // 每日限量
-      extra?:string // 奖品额外信息
-      id?:number //
-      introduction?:string // 使用说明
-      isTemplate?:number // 是否模板类型奖品
-      logo?:string // logo
-      mainPic?:string // 主图
-      modifyUser?:string // 修改人
-      money?:string // 金额
-      name?:string // 名称
-      prizeUnit?:string // 奖品单位
-      productType?:string // 类型
-      redirectUrl?:string // 跳转链接
-      sourceType?:string // 奖品使用渠道
-      sourceVal?:string // 渠道值
-      status?:string // 上线状态
-      totalAmount?:number // 总量
-      useInActId?:number // 记录奖品在哪个活动中使用
-      usedAmount?:number // 使用量
+      name?: string,
+      id?: string,
     }
 
     ```

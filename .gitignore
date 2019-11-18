@@ -5,6 +5,7 @@ bower_components
 explorations
 .DS_Store
 coverage
+package-lock.json
 perf
 *.map
 build/

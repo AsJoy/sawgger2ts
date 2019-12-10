@@ -1,9 +1,10 @@
-const chalk = require('chalk');
-import axios from 'axios'
-import path from 'path'
-import compiler from './compiler'
 require("regenerator-runtime/runtime");
+import axios from 'axios'
 import { getApiByTag, getCommentForApi, formatService, formatPaths } from './lib/format'
+const chalk = require('chalk');
+const path = require('path')
+const { build } =  require('./render/index')
+
 
 const init = async (configPath) => {
   const config = require(path.resolve(process.cwd(), configPath))
@@ -35,22 +36,22 @@ const init = async (configPath) => {
     }
     const apis = getCommentForApi(paths)
     if (api) {
-      compiler(apis, path.resolve(__dirname, '../temp/api.ts.juicer'), api);
+      build(apis, path.resolve(__dirname, '../temp/api.ts.tpl'), api);
       console.log(chalk.green(`${host} api写入成功`))
     }
-    // const serivce = apis
+    const serivce = apis
     if (service) {
-      compiler(formatService(paths, apis), path.resolve(__dirname, '../temp/service.ts.juicer'), service, {
+      build(formatService(paths, apis), path.resolve(__dirname, '../temp/service.ts.tpl'), service, {
         relative: `./${path.relative(service.replace(path.basename(service), ''), api)}`.replace(/\.ts$/, '')
       });
       console.log(chalk.green(`${host} service写入成功`))
     }
     const d = formatPaths(data.data, paths)
     if (model) {
-      compiler(d, path.resolve(__dirname, '../temp/model.ts.juicer'), model);
+      build(d, path.resolve(__dirname, '../temp/model.ts.tpl'), model);
       console.log(chalk.green(`${host} model写入成功`))
     }
-})
+  })
 
   await Promise.all(promises)
 

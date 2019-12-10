@@ -1,0 +1,12 @@
+[
+  {
+    "item": {
+      "coinsAll": {
+        "type": "number",
+        "index": 2,
+        "summary": "用户金币总量"
+      }
+    },
+    "interfaceName": "GoldRank"
+  }
+]

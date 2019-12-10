@@ -2,7 +2,7 @@
 
 根据swagger构建ts api与接口请求 同时帮助定义好构建接口返回的Interface，目标是大大减小ts开发成本
 
-### startUp
+### Quick Start
 1. `npm i -g swagger2ts`
 
 2. 配置`config`文件， 默认项目下的 `.swaggerconfig.js` 文件 配置如下
@@ -34,45 +34,43 @@
       ```
 3. 项目根目录下执行 `swagger2ts` 命令
 
-> ### 生成的目标代码
+### 生成的目标代码
 
 1. `api.ts`
 
     ```js
-    /**
-     * Created on 2018-09-04
-     */
-    const base: string = '/base.com'
-    /**
-     * summary 接口的注释
-     * @type {string}
-     */
-    export const summary: string = `${base}/test-controller/summary`
-```
+        /**
+         * Created on 2018-09-04
+         */
+        const base: string = '/base.com'
+        /**
+         * summary 接口的注释
+         * @type {string}
+         */
+        export const summary: string = `${base}/test-controller/summary`
+    ```   
 
 2. `service.ts`
 
-```js
-    import axios from '@/lib/axios'
-    import {
-      summary
-    } from './api'
-
-
-    export const fetchsummary = async (payload = {}): Promise<any> => {
-      const response = await axios(summary, payload, 'get')
-      return response
-    }
-
-```
-
+    ```js
+        import axios from '@/lib/axios'
+        import {
+          summary
+        } from './api'
+    
+    
+        export const fetchsummary = async (payload = {}): Promise<any> => {
+          const response = await axios(summary, payload, 'get')
+          return response
+        }
+    
+    ```
 3. Interface.ts
-
-```js
-    export interface IActivityProduct {
-      aliasName?:string // 奖品别名
-      name?: string,
-      id?: string,
-    }
-
-```
+    ```js
+        export interface IActivityProduct {
+          aliasName?:string // 奖品别名
+          name?: string,
+          id?: string,
+        }
+    
+    ```
